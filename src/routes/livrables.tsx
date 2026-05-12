@@ -136,7 +136,7 @@ const items = [
 function DeliverablesPage() {
   return (
     <>
-      <PageHeader eyebrow="Exemples" title="Livrables agiles" description="Des exemples illustratifs (réalistes mais fictifs) pour montrer ce que je sais produire." />
+      <PageHeader index="04" eyebrow="Exemples" title="Livrables." description="Des exemples illustratifs (réalistes mais fictifs) pour montrer ce que je sais produire." />
       <section className="mx-auto max-w-6xl space-y-10 px-6 py-16">
         {items.map((it) => (
           <div key={it.title} className="rounded-3xl border border-border bg-card p-8 shadow-card">

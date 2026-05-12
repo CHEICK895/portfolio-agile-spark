@@ -26,7 +26,7 @@ const skills = [
 function SkillsPage() {
   return (
     <>
-      <PageHeader eyebrow="Savoir-faire" title="Compétences agiles" description="Les fondamentaux que je maîtrise et que je continue à approfondir au quotidien." />
+      <PageHeader index="02" eyebrow="Savoir-faire" title="Compétences." description="Les fondamentaux que je maîtrise et que je continue à approfondir au quotidien." />
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((s) => (
