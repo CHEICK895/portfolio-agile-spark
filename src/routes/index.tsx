@@ -4,7 +4,7 @@ import { ArrowRight, Users, GitBranch, Sparkles } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cheick Bamba — Assistant Agile Master en alternance" },
+      { title: "Cheick Bamba | Assistant Agile Master en alternance" },
       { name: "description", content: "Portfolio de Cheick Bamba, étudiant en informatique candidat à une alternance d'Assistant Agile Master." },
     ],
   }),
@@ -18,14 +18,14 @@ function Index() {
         <div className="absolute inset-0 -z-10 bg-gradient-soft" />
         <div className="absolute -top-40 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-primary/15 blur-3xl" />
         <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary shadow-card">
-            <Sparkles className="h-3.5 w-3.5" /> Alternance · Bac+3 · Rentrée 2026
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-card">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Alternance · Bac+3 · Rentrée 2026
           </span>
           <h1 className="mt-6 max-w-3xl text-5xl font-bold leading-tight text-foreground md:text-7xl">
             Cheick <span className="bg-gradient-hero bg-clip-text text-transparent">Bamba</span>
           </h1>
-          <p className="mt-4 text-xl font-medium text-foreground/80 md:text-2xl">
-            Assistant Agile Master — Alternance
+          <p className="mt-4 font-display text-xl italic text-foreground/70 md:text-2xl">
+            Assistant Agile Master · Alternance
           </p>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
             « J'aide les équipes à mieux collaborer, à fluidifier leur delivery et à progresser grâce à l'agilité. »

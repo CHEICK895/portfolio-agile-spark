@@ -53,7 +53,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border/60 bg-secondary/40">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row">
-        <p>© {new Date().getFullYear()} Cheick Bamba — Portfolio Assistant Agile Master</p>
+        <p>© {new Date().getFullYear()} Cheick Bamba · Portfolio Assistant Agile Master</p>
         <p className="font-medium text-foreground">Disponible pour une alternance</p>
       </div>
     </footer>

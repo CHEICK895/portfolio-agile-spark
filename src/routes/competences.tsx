@@ -5,7 +5,7 @@ import { Layers, Trello, Users, Lightbulb, ListChecks, TrendingUp, BarChart3, Wo
 export const Route = createFileRoute("/competences")({
   head: () => ({
     meta: [
-      { title: "Compétences agiles — Cheick Bamba" },
+      { title: "Compétences agiles | Cheick Bamba" },
       { name: "description", content: "Scrum, Kanban, facilitation, animation d'ateliers, backlog et amélioration continue." },
     ],
   }),
