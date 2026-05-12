@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 export const Route = createFileRoute("/outils")({
   head: () => ({
     meta: [
-      { title: "Outils — Cheick Bamba" },
+      { title: "Outils | Cheick Bamba" },
       { name: "description", content: "Jira, Miro, Office 365, GitLab, Trello, Notion." },
     ],
   }),

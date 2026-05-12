@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 export const Route = createFileRoute("/livrables")({
   head: () => ({
     meta: [
-      { title: "Livrables agiles — Cheick Bamba" },
+      { title: "Livrables agiles | Cheick Bamba" },
       { name: "description", content: "Exemples concrets : user story, board Kanban, rétrospective, story mapping, KPI." },
     ],
   }),
@@ -88,7 +88,7 @@ function StoryMap() {
           ))}
         </div>
       ))}
-      <p className="text-xs text-muted-foreground">Ligne 1 : MVP — Ligne 2 : itérations suivantes</p>
+      <p className="text-xs text-muted-foreground">Ligne 1 : MVP · Ligne 2 : itérations suivantes</p>
     </div>
   );
 }

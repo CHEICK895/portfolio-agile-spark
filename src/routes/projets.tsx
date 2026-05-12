@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/projets")({
   head: () => ({
     meta: [
-      { title: "Projets agiles — Cheick Bamba" },
+      { title: "Projets agiles | Cheick Bamba" },
       { name: "description", content: "Trois fiches projets illustrant ma pratique de l'agilité." },
     ],
   }),

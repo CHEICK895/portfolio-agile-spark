@@ -5,7 +5,7 @@ import { GraduationCap, Target, Heart, Compass } from "lucide-react";
 export const Route = createFileRoute("/presentation")({
   head: () => ({
     meta: [
-      { title: "Présentation — Cheick Bamba" },
+      { title: "Présentation | Cheick Bamba" },
       { name: "description", content: "Étudiant en informatique passionné par l'agilité et la facilitation d'équipe." },
     ],
   }),

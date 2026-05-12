@@ -5,7 +5,7 @@ import { Mail, Phone, Linkedin, Download } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & CV — Cheick Bamba" },
+      { title: "Contact & CV | Cheick Bamba" },
       { name: "description", content: "Disponible pour une alternance Assistant Agile Master. Email, téléphone, LinkedIn et CV." },
     ],
   }),
@@ -45,7 +45,7 @@ function ContactPage() {
               <Download className="h-5 w-5" /> Télécharger mon CV
             </a>
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              Disponible pour une alternance Assistant Agile Master — rentrée 2026.
+              Disponible pour une alternance Assistant Agile Master · rentrée 2026.
             </p>
           </div>
         </div>
