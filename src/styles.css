@@ -202,4 +202,3 @@
 ::-webkit-scrollbar-track { background: oklch(0.13 0.02 250); }
 ::-webkit-scrollbar-thumb { background: oklch(0.30 0.03 250); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: oklch(0.86 0.16 200 / 0.6); }
-}
