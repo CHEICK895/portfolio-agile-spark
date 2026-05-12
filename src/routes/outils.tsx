@@ -23,17 +23,20 @@ const tools = [
 function ToolsPage() {
   return (
     <>
-      <PageHeader eyebrow="Stack" title="Outils" description="Les outils que j'utilise pour collaborer, organiser et faire avancer le travail." />
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((t) => (
-            <div key={t.name} className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-card transition hover:shadow-elegant">
-              <div className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${t.color} text-2xl font-bold text-white shadow-elegant`}>
+      <PageHeader index="05" eyebrow="Stack" title="Outils." description="Les outils que j'utilise pour collaborer, organiser et faire avancer le travail." />
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-px bg-foreground/10 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((t, i) => (
+            <div key={t.name} className="group flex items-center gap-5 bg-background p-7 transition hover:bg-foreground hover:text-background">
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center border border-foreground/30 italic-display text-3xl text-foreground transition group-hover:border-accent group-hover:bg-accent group-hover:text-foreground">
                 {t.letter}
               </div>
-              <div>
-                <h3 className="font-semibold text-foreground">{t.name}</h3>
-                <p className="text-sm text-muted-foreground">{t.desc}</p>
+              <div className="flex-1">
+                <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground group-hover:text-background/60">
+                  <span>/{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="mt-1 italic-display text-2xl">{t.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground group-hover:text-background/70">{t.desc}</p>
               </div>
             </div>
           ))}

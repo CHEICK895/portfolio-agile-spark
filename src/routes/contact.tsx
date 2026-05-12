@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
-import { Mail, Phone, Linkedin, Download } from "lucide-react";
+import { Mail, Phone, Download, ArrowUpRight } from "lucide-react";
+import cheickPhoto from "@/assets/cheick.jpeg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -14,38 +15,50 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const items = [
-    { icon: Mail, label: "Email", value: "cheick.bamba@email.com", href: "mailto:cheick.bamba@email.com" },
-    { icon: Phone, label: "Téléphone", value: "+33 6 00 00 00 00", href: "tel:+33600000000" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/cheickbamba", href: "https://linkedin.com/in/cheickbamba" },
+    { icon: Mail, label: "Email", value: "bamba15cheick@gmail.com", href: "mailto:bamba15cheick@gmail.com", num: "01" },
+    { icon: Phone, label: "Téléphone", value: "07 64 46 86 29", href: "tel:+33764468629", num: "02" },
   ];
   return (
     <>
-      <PageHeader eyebrow="Contact" title="Discutons de votre alternance" description="Disponible pour une alternance Assistant Agile Master. N'hésitez pas à me contacter." />
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <div className="rounded-3xl border border-border bg-gradient-hero p-1 shadow-elegant">
-          <div className="rounded-[calc(1.5rem-4px)] bg-card p-10">
-            <div className="grid gap-4">
+      <PageHeader index="06" eyebrow="Contact" title="Échangeons." description="Disponible pour une alternance Assistant Agile Master · rentrée 2026." />
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="relative">
+              <div className="absolute -inset-3 bg-accent/40 -z-10 -translate-x-3 translate-y-3" />
+              <img src={cheickPhoto} alt="Cheick Bamba" className="w-full border border-foreground/15 grayscale contrast-110" />
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Fig. 02 · Disponible</p>
+            </div>
+          </div>
+          <div className="md:col-span-7">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">(/) · Coordonnées directes</p>
+            <div className="mt-6 divide-y divide-foreground/10 border-y border-foreground/10">
               {items.map((it) => (
-                <a key={it.label} href={it.href} className="flex items-center gap-4 rounded-xl border border-border p-4 transition hover:border-primary hover:bg-secondary/60">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <it.icon className="h-5 w-5" />
+                <a key={it.label} href={it.href} className="group flex items-center justify-between gap-6 py-6 transition hover:bg-foreground/5">
+                  <div className="flex items-center gap-5">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">/{it.num}</span>
+                    <it.icon className="h-4 w-4 text-foreground" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{it.label}</span>
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground">{it.label}</p>
-                    <p className="font-semibold text-foreground">{it.value}</p>
+                  <div className="flex items-center gap-4">
+                    <span className="italic-display text-2xl text-foreground md:text-3xl">{it.value}</span>
+                    <ArrowUpRight className="h-5 w-5 text-muted-foreground transition group-hover:rotate-45 group-hover:text-accent-foreground" />
                   </div>
                 </a>
               ))}
             </div>
+
             <a
               href="/cv-cheick-bamba.pdf"
               download
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-semibold text-primary-foreground shadow-elegant transition hover:opacity-90"
+              className="mt-10 group inline-flex w-full items-center justify-between gap-4 border border-foreground bg-foreground px-8 py-6 text-background transition hover:bg-accent hover:border-accent hover:text-foreground"
             >
-              <Download className="h-5 w-5" /> Télécharger mon CV
+              <span className="font-mono text-[11px] uppercase tracking-[0.25em]">→ Télécharger le CV</span>
+              <Download className="h-5 w-5 transition group-hover:translate-y-0.5" />
             </a>
-            <p className="mt-6 text-center text-sm text-muted-foreground">
-              Disponible pour une alternance Assistant Agile Master · rentrée 2026.
+
+            <p className="mt-8 italic-display text-2xl text-foreground/80">
+              «&nbsp;Disponible pour une alternance Assistant Agile Master · rentrée 2026.&nbsp;»
             </p>
           </div>
         </div>

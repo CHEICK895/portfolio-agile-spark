@@ -39,7 +39,7 @@ const projects = [
 function ProjectsPage() {
   return (
     <>
-      <PageHeader eyebrow="Réalisations" title="Projets agiles" description="Trois expériences académiques et personnelles qui illustrent ma pratique." />
+      <PageHeader index="03" eyebrow="Réalisations" title="Projets." description="Trois expériences académiques et personnelles qui illustrent ma pratique." />
       <section className="mx-auto max-w-6xl space-y-8 px-6 py-16">
         {projects.map((p, i) => (
           <article key={p.title} className="grid gap-8 rounded-3xl border border-border bg-card p-8 shadow-card md:grid-cols-[180px_1fr] md:p-10">

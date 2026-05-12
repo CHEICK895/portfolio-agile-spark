@@ -21,7 +21,7 @@ function PresentationPage() {
   ];
   return (
     <>
-      <PageHeader eyebrow="À propos" title="Présentation" description="Une approche humaine de l'agilité, ancrée dans la curiosité et le service de l'équipe." />
+      <PageHeader index="01" eyebrow="À propos" title="Présentation." description="Une approche humaine de l'agilité, ancrée dans la curiosité et le service de l'équipe." />
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-6 md:grid-cols-2">
           {blocks.map((b) => (
