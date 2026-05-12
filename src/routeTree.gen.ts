@@ -13,6 +13,7 @@ import { Route as ProjetsRouteImport } from './routes/projets'
 import { Route as PresentationRouteImport } from './routes/presentation'
 import { Route as OutilsRouteImport } from './routes/outils'
 import { Route as LivrablesRouteImport } from './routes/livrables'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompetencesRouteImport } from './routes/competences'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const LivrablesRoute = LivrablesRouteImport.update({
   path: '/livrables',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CompetencesRoute = CompetencesRouteImport.update({
   id: '/competences',
   path: '/competences',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
+  '/contact': typeof ContactRoute
   '/livrables': typeof LivrablesRoute
   '/outils': typeof OutilsRoute
   '/presentation': typeof PresentationRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
+  '/contact': typeof ContactRoute
   '/livrables': typeof LivrablesRoute
   '/outils': typeof OutilsRoute
   '/presentation': typeof PresentationRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
+  '/contact': typeof ContactRoute
   '/livrables': typeof LivrablesRoute
   '/outils': typeof OutilsRoute
   '/presentation': typeof PresentationRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/competences'
+    | '/contact'
     | '/livrables'
     | '/outils'
     | '/presentation'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/competences'
+    | '/contact'
     | '/livrables'
     | '/outils'
     | '/presentation'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/competences'
+    | '/contact'
     | '/livrables'
     | '/outils'
     | '/presentation'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompetencesRoute: typeof CompetencesRoute
+  ContactRoute: typeof ContactRoute
   LivrablesRoute: typeof LivrablesRoute
   OutilsRoute: typeof OutilsRoute
   PresentationRoute: typeof PresentationRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LivrablesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/competences': {
       id: '/competences'
       path: '/competences'
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompetencesRoute: CompetencesRoute,
+  ContactRoute: ContactRoute,
   LivrablesRoute: LivrablesRoute,
   OutilsRoute: OutilsRoute,
   PresentationRoute: PresentationRoute,
