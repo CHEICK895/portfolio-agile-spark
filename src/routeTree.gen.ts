@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PresentationRouteImport } from './routes/presentation'
+import { Route as CompetencesRouteImport } from './routes/competences'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PresentationRoute = PresentationRouteImport.update({
   id: '/presentation',
   path: '/presentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompetencesRoute = CompetencesRouteImport.update({
+  id: '/competences',
+  path: '/competences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/competences': typeof CompetencesRoute
   '/presentation': typeof PresentationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/competences': typeof CompetencesRoute
   '/presentation': typeof PresentationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/competences': typeof CompetencesRoute
   '/presentation': typeof PresentationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/presentation'
+  fullPaths: '/' | '/competences' | '/presentation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/presentation'
-  id: '__root__' | '/' | '/presentation'
+  to: '/' | '/competences' | '/presentation'
+  id: '__root__' | '/' | '/competences' | '/presentation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CompetencesRoute: typeof CompetencesRoute
   PresentationRoute: typeof PresentationRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/presentation'
       fullPath: '/presentation'
       preLoaderRoute: typeof PresentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/competences': {
+      id: '/competences'
+      path: '/competences'
+      fullPath: '/competences'
+      preLoaderRoute: typeof CompetencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,8 +87,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CompetencesRoute: CompetencesRoute,
   PresentationRoute: PresentationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
