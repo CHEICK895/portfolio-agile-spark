@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProjetsRouteImport } from './routes/projets'
 import { Route as PresentationRouteImport } from './routes/presentation'
 import { Route as CompetencesRouteImport } from './routes/competences'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProjetsRoute = ProjetsRouteImport.update({
+  id: '/projets',
+  path: '/projets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PresentationRoute = PresentationRouteImport.update({
   id: '/presentation',
   path: '/presentation',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
   '/presentation': typeof PresentationRoute
+  '/projets': typeof ProjetsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
   '/presentation': typeof PresentationRoute
+  '/projets': typeof ProjetsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
   '/presentation': typeof PresentationRoute
+  '/projets': typeof ProjetsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/competences' | '/presentation'
+  fullPaths: '/' | '/competences' | '/presentation' | '/projets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/competences' | '/presentation'
-  id: '__root__' | '/' | '/competences' | '/presentation'
+  to: '/' | '/competences' | '/presentation' | '/projets'
+  id: '__root__' | '/' | '/competences' | '/presentation' | '/projets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompetencesRoute: typeof CompetencesRoute
   PresentationRoute: typeof PresentationRoute
+  ProjetsRoute: typeof ProjetsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/projets': {
+      id: '/projets'
+      path: '/projets'
+      fullPath: '/projets'
+      preLoaderRoute: typeof ProjetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/presentation': {
       id: '/presentation'
       path: '/presentation'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompetencesRoute: CompetencesRoute,
   PresentationRoute: PresentationRoute,
+  ProjetsRoute: ProjetsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
