@@ -1,72 +1,93 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { Home, User, Sparkles, Layers, FileCheck2, Wrench, Send } from "lucide-react";
 
 const links = [
-  { to: "/", label: "Index", num: "00" },
-  { to: "/presentation", label: "Présentation", num: "01" },
-  { to: "/competences", label: "Compétences", num: "02" },
-  { to: "/projets", label: "Projets", num: "03" },
-  { to: "/livrables", label: "Livrables", num: "04" },
-  { to: "/outils", label: "Outils", num: "05" },
-  { to: "/contact", label: "Contact", num: "06" },
+  { to: "/", label: "Index", num: "00", icon: Home },
+  { to: "/presentation", label: "À propos", num: "01", icon: User },
+  { to: "/competences", label: "Skills", num: "02", icon: Sparkles },
+  { to: "/projets", label: "Projets", num: "03", icon: Layers },
+  { to: "/livrables", label: "Livrables", num: "04", icon: FileCheck2 },
+  { to: "/outils", label: "Stack", num: "05", icon: Wrench },
+  { to: "/contact", label: "Contact", num: "06", icon: Send },
 ] as const;
 
 export function SiteHeader() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const current = links.find((l) => l.to === path) ?? links[0];
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-foreground/10 bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-        <Link to="/" className="flex items-baseline gap-2 text-foreground">
-          <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">CB·26</span>
-          <span className="italic-display text-2xl leading-none">Cheick Bamba</span>
-        </Link>
-        <nav className="hidden items-center gap-5 md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="group flex items-baseline gap-1.5 text-sm text-muted-foreground transition hover:text-foreground"
-              activeProps={{ className: "flex items-baseline gap-1.5 text-sm text-foreground" }}
-              activeOptions={{ exact: true }}
-            >
-              <span className="font-mono text-[10px] text-muted-foreground/70 group-hover:text-accent">{l.num}</span>
-              <span className="border-b border-transparent group-hover:border-accent">{l.label}</span>
-            </Link>
-          ))}
-        </nav>
-        <Link
-          to="/contact"
-          className="hidden items-center gap-2 border border-foreground bg-foreground px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-background transition hover:bg-accent hover:text-foreground hover:border-accent md:inline-flex"
-        >
-          → Échanger
-        </Link>
-      </div>
-      <nav className="flex gap-3 overflow-x-auto border-t border-foreground/10 px-4 py-2 md:hidden">
-        {links.map((l) => (
-          <Link key={l.to} to={l.to} className="flex shrink-0 items-baseline gap-1 whitespace-nowrap text-xs text-muted-foreground" activeProps={{ className: "flex shrink-0 items-baseline gap-1 whitespace-nowrap text-xs text-foreground" }}>
-            <span className="font-mono text-[9px] opacity-60">{l.num}</span>{l.label}
-          </Link>
-        ))}
+    <>
+      {/* Status bar */}
+      <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground md:px-8">
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inset-0 rounded-full bg-primary animate-pulse-dot" />
+            </span>
+            <span className="text-foreground">CB.OS</span>
+            <span className="hidden md:inline">v.2026.1</span>
+            <span className="hidden md:inline">·</span>
+            <span className="hidden md:inline">user: cheick.bamba</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline">{current.num}/{links.length - 1} {current.label}</span>
+            <span className="hidden md:inline">·</span>
+            <span className="hidden md:inline">status: <span className="text-primary">disponible</span></span>
+            <span className="md:hidden text-primary">● live</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Floating dock */}
+      <nav className="pointer-events-none fixed bottom-4 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-2xl -translate-x-1/2">
+        <div className="pointer-events-auto flex items-center gap-1 rounded-full border border-border bg-card/80 p-1.5 shadow-elegant backdrop-blur-2xl">
+          {links.map((l) => {
+            const Icon = l.icon;
+            const active = path === l.to;
+            return (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`group relative flex flex-1 items-center justify-center gap-1.5 rounded-full px-2 py-2 text-xs transition ${
+                  active ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                }`}
+                title={l.label}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                <span className="hidden md:inline font-mono text-[10px] uppercase tracking-wider">{l.label}</span>
+              </Link>
+            );
+          })}
+        </div>
       </nav>
-    </header>
+    </>
   );
 }
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-foreground/10 bg-foreground text-background">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-3">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/50">Index · Colophon</p>
-          <p className="italic-display mt-3 text-4xl">Faisons équipe.</p>
-        </div>
-        <div className="font-mono text-xs uppercase tracking-wider text-background/70">
-          <p>bamba15cheick@gmail.com</p>
-          <p className="mt-1">07 64 46 86 29</p>
-        </div>
-        <div className="md:text-right">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/50">© {new Date().getFullYear()}</p>
-          <p className="mt-2 text-sm text-background/80">Cheick Bamba · Portfolio Assistant Agile Master · Rentrée 2026</p>
+    <footer className="mt-32 border-t border-border bg-card/30">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 md:px-8">
+        <div className="grid gap-8 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">// signal</p>
+            <p className="mt-3 font-display text-4xl text-foreground md:text-5xl">
+              On lance le <span className="text-gradient">sprint zéro</span> ensemble ?
+            </p>
+          </div>
+          <div className="md:col-span-4 font-mono text-xs text-muted-foreground">
+            <p className="uppercase tracking-[0.2em] text-foreground/60">// canal</p>
+            <p className="mt-3 text-foreground">bamba15cheick@gmail.com</p>
+            <p className="text-foreground">+33 7 64 46 86 29</p>
+          </div>
+          <div className="md:col-span-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:text-right">
+            <p>© {new Date().getFullYear()} · CB.OS</p>
+            <p className="mt-2 text-foreground/70">Built with intent.</p>
+            <p className="text-foreground/40">No cloud · local first</p>
+          </div>
         </div>
       </div>
+      <div className="h-20" /> {/* spacing for floating dock */}
     </footer>
   );
 }
