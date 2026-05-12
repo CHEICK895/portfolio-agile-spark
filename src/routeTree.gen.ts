@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProjetsRouteImport } from './routes/projets'
 import { Route as PresentationRouteImport } from './routes/presentation'
+import { Route as OutilsRouteImport } from './routes/outils'
 import { Route as LivrablesRouteImport } from './routes/livrables'
 import { Route as CompetencesRouteImport } from './routes/competences'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const ProjetsRoute = ProjetsRouteImport.update({
 const PresentationRoute = PresentationRouteImport.update({
   id: '/presentation',
   path: '/presentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OutilsRoute = OutilsRouteImport.update({
+  id: '/outils',
+  path: '/outils',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LivrablesRoute = LivrablesRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
   '/livrables': typeof LivrablesRoute
+  '/outils': typeof OutilsRoute
   '/presentation': typeof PresentationRoute
   '/projets': typeof ProjetsRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
   '/livrables': typeof LivrablesRoute
+  '/outils': typeof OutilsRoute
   '/presentation': typeof PresentationRoute
   '/projets': typeof ProjetsRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/competences': typeof CompetencesRoute
   '/livrables': typeof LivrablesRoute
+  '/outils': typeof OutilsRoute
   '/presentation': typeof PresentationRoute
   '/projets': typeof ProjetsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/competences' | '/livrables' | '/presentation' | '/projets'
+  fullPaths:
+    | '/'
+    | '/competences'
+    | '/livrables'
+    | '/outils'
+    | '/presentation'
+    | '/projets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/competences' | '/livrables' | '/presentation' | '/projets'
+  to:
+    | '/'
+    | '/competences'
+    | '/livrables'
+    | '/outils'
+    | '/presentation'
+    | '/projets'
   id:
     | '__root__'
     | '/'
     | '/competences'
     | '/livrables'
+    | '/outils'
     | '/presentation'
     | '/projets'
   fileRoutesById: FileRoutesById
@@ -81,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompetencesRoute: typeof CompetencesRoute
   LivrablesRoute: typeof LivrablesRoute
+  OutilsRoute: typeof OutilsRoute
   PresentationRoute: typeof PresentationRoute
   ProjetsRoute: typeof ProjetsRoute
 }
@@ -99,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/presentation'
       fullPath: '/presentation'
       preLoaderRoute: typeof PresentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/outils': {
+      id: '/outils'
+      path: '/outils'
+      fullPath: '/outils'
+      preLoaderRoute: typeof OutilsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/livrables': {
@@ -129,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompetencesRoute: CompetencesRoute,
   LivrablesRoute: LivrablesRoute,
+  OutilsRoute: OutilsRoute,
   PresentationRoute: PresentationRoute,
   ProjetsRoute: ProjetsRoute,
 }
