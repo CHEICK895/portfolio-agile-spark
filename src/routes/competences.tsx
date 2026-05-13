@@ -14,32 +14,38 @@ export const Route = createFileRoute("/competences")({
 
 const groups = {
   "frameworks": [
-    { name: "Scrum (cadre, rôles, événements)", level: 70 },
-    { name: "Kanban (flux, WIP, board)", level: 75 },
-    { name: "User stories & critères d'acceptation", level: 70 },
-    { name: "Story mapping", level: 60 },
+    { name: "Scrum (cadre, rôles, événements)", level: "Opérationnel" },
+    { name: "Kanban (flux, WIP, board)", level: "À l'aise" },
+    { name: "User stories & critères d'acceptation", level: "Opérationnel" },
+    { name: "Story mapping", level: "Notions" },
   ],
   "facilitation": [
-    { name: "Animer un daily concis", level: 80 },
-    { name: "Préparer & animer une rétrospective", level: 70 },
-    { name: "Brainstorming structuré", level: 75 },
-    { name: "Cadrer le temps et l'énergie", level: 70 },
+    { name: "Animer un daily concis", level: "À l'aise" },
+    { name: "Préparer & animer une rétrospective", level: "Opérationnel" },
+    { name: "Brainstorming structuré", level: "À l'aise" },
+    { name: "Cadrer le temps et l'énergie", level: "Opérationnel" },
   ],
   "mesure & flux": [
-    { name: "Lecture lead time / cycle time", level: 65 },
-    { name: "Vélocité & throughput", level: 65 },
-    { name: "Identifier un goulot", level: 60 },
-    { name: "Boucles de feedback courtes", level: 75 },
+    { name: "Lecture lead time / cycle time", level: "Notions" },
+    { name: "Vélocité & throughput", level: "Notions" },
+    { name: "Identifier un goulot", level: "Notions" },
+    { name: "Boucles de feedback courtes", level: "À l'aise" },
   ],
   "posture": [
-    { name: "Écoute active", level: 85 },
-    { name: "Communication claire", level: 80 },
-    { name: "Pédagogie", level: 80 },
-    { name: "Travail transversal dev/test/PO", level: 75 },
+    { name: "Écoute active", level: "À l'aise" },
+    { name: "Communication claire", level: "À l'aise" },
+    { name: "Pédagogie", level: "À l'aise" },
+    { name: "Travail transversal dev/test/PO", level: "Opérationnel" },
   ],
 } as const;
 
 type GroupKey = keyof typeof groups;
+
+const levelStyle: Record<string, string> = {
+  "Notions": "border-border bg-secondary text-muted-foreground",
+  "Opérationnel": "border-primary/30 bg-primary/10 text-primary",
+  "À l'aise": "border-accent/40 bg-accent/15 text-accent-foreground",
+};
 
 function SkillsPage() {
   const keys = Object.keys(groups) as GroupKey[];
@@ -69,22 +75,16 @@ function SkillsPage() {
         <div className="mt-10 grid gap-6 md:grid-cols-12">
           <div className="md:col-span-7 space-y-5 rounded-lg border border-border bg-card p-6 md:p-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">// {active}</p>
-            <div className="space-y-5">
+            <ul className="divide-y divide-border">
               {groups[active].map((s) => (
-                <div key={s.name}>
-                  <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-foreground">{s.name}</span>
-                    <span className="font-mono text-xs text-muted-foreground">{s.level}%</span>
-                  </div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-secondary">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-700"
-                      style={{ width: `${s.level}%` }}
-                    />
-                  </div>
-                </div>
+                <li key={s.name} className="flex items-center justify-between gap-4 py-3.5">
+                  <span className="text-foreground">{s.name}</span>
+                  <span className={`shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] ${levelStyle[s.level] ?? ""}`}>
+                    {s.level}
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           <div className="md:col-span-5 space-y-4">
@@ -112,9 +112,10 @@ function SkillsPage() {
         </div>
 
         {/* legend */}
-        <div className="mt-12 flex flex-wrap items-center gap-6 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-          <span className="flex items-center gap-2"><span className="h-2 w-6 rounded-full bg-gradient-to-r from-primary to-accent" /> niveau actuel</span>
-          <span>· lecture sur 100 — 100 = autonomie pleine</span>
+        <div className="mt-12 flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="rounded-full border border-border bg-secondary px-3 py-1 text-muted-foreground">Notions</span>
+          <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-primary">Opérationnel</span>
+          <span className="rounded-full border border-accent/40 bg-accent/15 px-3 py-1">À l'aise</span>
         </div>
       </section>
     </>

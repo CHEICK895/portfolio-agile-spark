@@ -24,10 +24,7 @@ export function SiteHeader() {
             <span className="relative flex h-2 w-2">
               <span className="absolute inset-0 rounded-full bg-primary animate-pulse-dot" />
             </span>
-            <span className="text-foreground">CB.OS</span>
-            <span className="hidden md:inline">v.2026.1</span>
-            <span className="hidden md:inline">·</span>
-            <span className="hidden md:inline">user: cheick.bamba</span>
+            <span className="text-foreground">Cheick Bamba</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="hidden sm:inline">{current.num}/{links.length - 1} {current.label}</span>
@@ -69,21 +66,16 @@ export function SiteFooter() {
     <footer className="mt-32 border-t border-border bg-card/30">
       <div className="mx-auto max-w-[1400px] px-4 py-12 md:px-8">
         <div className="grid gap-8 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-7">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">// signal</p>
             <p className="mt-3 font-display text-4xl text-foreground md:text-5xl">
               On lance le <span className="text-gradient">sprint zéro</span> ensemble ?
             </p>
           </div>
-          <div className="md:col-span-4 font-mono text-xs text-muted-foreground">
+          <div className="md:col-span-5 font-mono text-xs text-muted-foreground md:text-right">
             <p className="uppercase tracking-[0.2em] text-foreground/60">// canal</p>
             <p className="mt-3 text-foreground">bamba15cheick@gmail.com</p>
             <p className="text-foreground">+33 7 64 46 86 29</p>
-          </div>
-          <div className="md:col-span-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:text-right">
-            <p>© {new Date().getFullYear()} · CB.OS</p>
-            <p className="mt-2 text-foreground/70">Built with intent.</p>
-            <p className="text-foreground/40">No cloud · local first</p>
           </div>
         </div>
       </div>
