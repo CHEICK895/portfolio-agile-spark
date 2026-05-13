@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Activity, Zap, Users, GitBranch, Terminal } from "lucide-react";
-import cheickPhoto from "@/assets/cheick.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Cheick Bamba // Assistant Agile Master" },
-      { name: "description", content: "Portfolio de Cheick Bamba — étudiant en informatique, candidat à une alternance d'Assistant Agile Master." },
+      { name: "description", content: "Portfolio de Cheick Bamba, étudiant en informatique, candidat à une alternance d'Assistant Agile Master." },
     ],
   }),
   component: Index,
@@ -31,7 +30,7 @@ function Index() {
 
           {/* huge type */}
           <div className="grid gap-8 md:grid-cols-12">
-            <div className="md:col-span-9">
+            <div className="md:col-span-8">
               <h1 className="font-display text-foreground text-balance">
                 <span className="block text-[clamp(3rem,12vw,11rem)] leading-[0.85] tracking-tighter">
                   Assistant
@@ -41,12 +40,12 @@ function Index() {
                 </span>
               </h1>
             </div>
-            <div className="md:col-span-3 flex flex-col justify-end">
-              <div className="border-l-2 border-primary pl-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                <p className="text-foreground">// candidat</p>
-                <p className="mt-2">Cheick Bamba</p>
-                <p>Étudiant informatique</p>
-                <p>Bac+2 → Bac+3</p>
+            <div className="md:col-span-4 flex flex-col justify-end">
+              <div className="border-l-4 border-primary pl-6 font-mono uppercase tracking-[0.2em] text-muted-foreground">
+                <p className="text-sm text-primary md:text-base">// candidat</p>
+                <p className="mt-4 font-display text-3xl text-foreground md:text-4xl normal-case tracking-normal">Cheick Bamba</p>
+                <p className="mt-2 text-xs md:text-sm">Étudiant informatique</p>
+                <p className="text-xs md:text-sm">Bac+2 → Bac+3</p>
               </div>
             </div>
           </div>
@@ -69,27 +68,6 @@ function Index() {
               </div>
             </div>
 
-            {/* portrait card terminal */}
-            <div className="md:col-span-5">
-              <div className="relative rounded-md border border-border bg-card/70 p-3 shadow-card backdrop-blur-xl">
-                <div className="flex items-center justify-between border-b border-border pb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-destructive/70" />
-                    <span className="h-2 w-2 rounded-full bg-accent/70" />
-                    <span className="h-2 w-2 rounded-full bg-primary/70" />
-                  </div>
-                  <span>~/portrait/cheick.img</span>
-                </div>
-                <div className="relative mt-3 overflow-hidden rounded-sm">
-                  <img src={cheickPhoto} alt="Cheick Bamba" className="h-72 w-full object-cover object-bottom md:h-80" style={{ objectPosition: "center 95%" }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between font-mono text-[10px] uppercase tracking-wider text-foreground">
-                    <span>cheick_bamba.jpg</span>
-                    <span className="text-primary">●REC</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
