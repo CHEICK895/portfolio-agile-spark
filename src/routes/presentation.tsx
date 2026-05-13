@@ -86,7 +86,7 @@ function PresentationPage() {
           <p className="mt-6 font-display text-3xl leading-tight text-foreground md:text-5xl text-balance">
             « Le rôle d'Assistant Agile Master, ce n'est pas <span className="text-gradient">faire à la place</span>. C'est <span className="text-gradient">créer les conditions</span> pour que l'équipe trouve, livre et progresse par elle-même. »
           </p>
-          <p className="mt-6 font-mono text-xs uppercase tracking-wider text-muted-foreground">— ma boussole pour cette alternance</p>
+          <p className="mt-6 font-mono text-xs uppercase tracking-wider text-muted-foreground">ma boussole pour cette alternance</p>
         </div>
       </section>
     </>

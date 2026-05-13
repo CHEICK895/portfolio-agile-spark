@@ -30,8 +30,7 @@ function ContactPage() {
           <img src={cheickPhoto} alt="Cheick Bamba" className="h-80 w-full object-cover md:absolute md:inset-0 md:h-full" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent md:bg-gradient-to-r" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">// vCard</p>
-            <p className="mt-2 font-display text-4xl text-foreground md:text-5xl">Cheick Bamba</p>
+            <p className="font-display text-4xl text-foreground md:text-5xl">Cheick Bamba</p>
             <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">Assistant Agile Master · Alternance 2026</p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-primary">
               <span className="relative flex h-1.5 w-1.5"><span className="absolute inset-0 rounded-full bg-primary animate-pulse-dot" /></span>
