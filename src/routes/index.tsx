@@ -81,7 +81,7 @@ function Index() {
                   <span>~/portrait/cheick.img</span>
                 </div>
                 <div className="relative mt-3 overflow-hidden rounded-sm">
-                  <img src={cheickPhoto} alt="Cheick Bamba" className="h-72 w-full object-cover md:h-80" />
+                  <img src={cheickPhoto} alt="Cheick Bamba" className="h-72 w-full object-cover object-bottom md:h-80" style={{ objectPosition: "center 95%" }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between font-mono text-[10px] uppercase tracking-wider text-foreground">
                     <span>cheick_bamba.jpg</span>
