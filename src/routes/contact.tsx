@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, Download, ArrowUpRight, Copy, Check } from "lucide-react";
+import { Mail, Phone, ArrowUpRight, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import cheickPhoto from "@/assets/cheick.jpeg";
 
@@ -7,7 +7,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact // Cheick Bamba" },
-      { name: "description", content: "Disponible pour une alternance Assistant Agile Master. Email, téléphone, CV." },
+      { name: "description", content: "Disponible pour une alternance Assistant Agile Master. Email, téléphone." },
     ],
   }),
   component: ContactPage,
@@ -74,20 +74,6 @@ function ContactPage() {
               );
             })}
           </div>
-
-          {/* CV CTA */}
-          <a
-            href="/cv-cheick-bamba.pdf"
-            download
-            className="group mt-10 flex items-center justify-between gap-4 rounded-lg border border-primary bg-primary/10 p-6 transition hover:bg-primary hover:text-primary-foreground"
-          >
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary group-hover:text-primary-foreground">// download</p>
-              <p className="mt-1 font-display text-2xl text-foreground group-hover:text-primary-foreground">Télécharger mon CV (PDF)</p>
-              <p className="mt-1 font-mono text-xs text-muted-foreground group-hover:text-primary-foreground/80">cv-cheick-bamba.pdf · ~120 ko</p>
-            </div>
-            <Download className="h-6 w-6 text-primary group-hover:text-primary-foreground transition group-hover:translate-y-1" />
-          </a>
 
           <p className="mt-10 max-w-xl border-l-2 border-primary pl-4 font-mono text-xs uppercase tracking-wider text-muted-foreground">
             // « Disponible pour une alternance Assistant Agile Master · rentrée 2026. »
