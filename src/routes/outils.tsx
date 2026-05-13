@@ -23,7 +23,7 @@ const tools = [
 function ToolsPage() {
   return (
     <>
-      <PageHeader index="05" eyebrow="stack.config" title="Les outils, des moyens — pas des fins." description="Je m'adapte au contexte de l'équipe. Voici ceux que j'utilise déjà avec aisance." />
+      <PageHeader index="05" eyebrow="stack.config" title="Les outils, des moyens, pas des fins." description="Je m'adapte au contexte de l'équipe. Voici ceux que j'utilise déjà avec aisance." />
 
       <section className="mx-auto max-w-[1400px] px-4 py-20 md:px-8">
         {/* TABLE */}
