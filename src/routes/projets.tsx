@@ -63,7 +63,7 @@ const projects = [
 function ProjectsPage() {
   return (
     <>
-      <PageHeader index="03" eyebrow="projects.list" title="Trois fiches, trois contextes." description="Académique, ateliers, personnel — chacun a appris quelque chose à mon rapport au flux." />
+      <PageHeader index="03" eyebrow="projects.list" title="Trois fiches, trois contextes." description="Académique, ateliers, personnel : chacun a appris quelque chose à mon rapport au flux." />
 
       <section className="mx-auto max-w-[1400px] px-4 py-20 md:px-8 space-y-24">
         {projects.map((p, i) => (
