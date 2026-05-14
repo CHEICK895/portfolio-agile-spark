@@ -73,14 +73,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "cheick-portfolio" },
+      { name: "description", content: "assistant agile master" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "cheick-portfolio" },
+      { property: "og:description", content: "assistant agile master" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "cheick-portfolio" },
+      { name: "twitter:description", content: "assistant agile master" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/50f9d3ad-dff2-479b-8f2b-c37b790039f9/id-preview-fb868c07--e8ebaa1d-0801-429a-a5bb-19679f692030.lovable.app-1778755053498.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/50f9d3ad-dff2-479b-8f2b-c37b790039f9/id-preview-fb868c07--e8ebaa1d-0801-429a-a5bb-19679f692030.lovable.app-1778755053498.png" },
     ],
     links: [
       {
